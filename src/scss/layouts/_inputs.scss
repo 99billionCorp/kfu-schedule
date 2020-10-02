@@ -1,0 +1,18 @@
+@import './../variables';
+
+.input-form {
+  width: 100%;
+  padding: 10px 7px;
+  border: 2px solid $primary-gray;
+  border-radius: 5px;
+}
+
+
+.filter__input {
+  margin-bottom: .5rem;
+
+  // &:last-child {
+  //   background-color: purple;
+  //   margin-bottom: 3rem !important;
+  // }
+}

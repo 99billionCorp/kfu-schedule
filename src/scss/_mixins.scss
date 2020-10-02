@@ -1,0 +1,19 @@
+@mixin card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+@mixin button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $primary-gray;
+  border-radius: 3px;
+  padding: 3px 20px;
+  outline: none;
+  border: none;
+}

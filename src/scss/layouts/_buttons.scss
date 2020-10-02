@@ -1,0 +1,16 @@
+.btn {
+  @include button;
+}
+
+.btn-dark {
+  background-color: rgba(0, 0, 0, 0.63);
+  color: white;
+}
+
+.btn-padding-no {
+  padding: 8px;
+}
+
+.btn-large {
+  padding: 10px 30px;
+}

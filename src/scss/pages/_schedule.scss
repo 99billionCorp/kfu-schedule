@@ -1,0 +1,31 @@
+@import './../mixins';
+
+.lessons {
+  counter-reset: counter-name;
+}
+
+
+.week {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+  }
+
+  &__even-odd {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+
+  .card:last-child {
+    margin-bottom: 40px;
+  }
+}

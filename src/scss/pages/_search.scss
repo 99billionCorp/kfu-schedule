@@ -1,0 +1,16 @@
+@import '../variables';
+
+.search {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  padding: 5px;
+  background-color: $primary-gray-light;
+  // background-color: #900;
+}

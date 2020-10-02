@@ -1,0 +1,13 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+
+  &__warning,
+  &__contacts {
+    font-size: 0.8rem;
+  }
+
+  &__warning {
+    color: #555;
+  }
+}
