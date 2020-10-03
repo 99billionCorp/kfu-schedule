@@ -5,7 +5,7 @@ import { useHttp } from './hooks/http.hook'
 
 function App() {
   const { request } = useHttp()
-  request('/', 'POST', {test: 'test'}, {header: 'hhhhhh'}).then(d=>{
+  request('/api', 'POST', {test: 'test'}, {header: 'hhhhhh'}).then(d=>{
     console.log(d)
   })
   return (

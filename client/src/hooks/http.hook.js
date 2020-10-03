@@ -7,7 +7,7 @@ export const useHttp = () => {
     const request = useCallback(async (url, method, body, headers) => {
         headers = {
             ...headers,
-            Accept: 'application/json',
+            'Accept': 'application/json',
             'content-type': 'application/json'
         }
         // setLoading(true)
