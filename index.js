@@ -1,12 +1,18 @@
 const express = require('express')
 const app = express()
+const config = require('config')
 
-app.get('/', (req,res)=>{
+const PORT = config.get('port')
+
+app.use(express.json())
+
+app.post('/', (req,res)=>{
+    console.log('Woow', req.body)
     res.json({
         ok: 'Ok'
     })
 })
 
-app.listen(3001, ()=>{
-    console.log('server has been started')
+app.listen(PORT, ()=>{
+    console.log(`Server has been started on ${PORT}...`)
 })

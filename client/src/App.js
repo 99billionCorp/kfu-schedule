@@ -1,8 +1,13 @@
 import React from "react";
 import "./scss/index.scss";
-import Prepod from "./images/muranov.jpg";
+// import Prepod from "./images/muranov.jpg";
+import { useHttp } from './hooks/http.hook'
 
 function App() {
+  const { request } = useHttp()
+  request('/', 'POST', {test: 'test'}, {header: 'hhhhhh'}).then(d=>{
+    console.log(d)
+  })
   return (
     <div className="App">
       <div className="header margin-bottom-medium">
