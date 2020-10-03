@@ -5,27 +5,26 @@ import Prepod from "./images/muranov.jpg";
 function App() {
   return (
     <div className="App">
-      <div className="card card-fullScreen">
-        <form className="filter">
-          <p className="filter__header">Где ты учишься?</p>
-          <input
-            className="input-form filter__input"
-            type="text"
-            value="Математика и информатика"
-          />
-          <input
-            className="input-form filter__input"
-            type="text"
-            placeholder="Группа..."
-          />
-          <input
-            className="btn btn-dark btn-large filter__submit"
-            type="submit"
-            value="Сохранить"
-          />
-        </form>
+      <div className="header margin-bottom-medium">
+        <button className="btn header__btn">
+          <i className="material-icons">filter_list</i>
+          Фильтр
+        </button>
 
-        <span class="material-icons icon-info">info</span>
+        <button className="btn header__btn">
+          <i className="material-icons">schedule</i>
+          Расписание
+        </button>
+
+        <div className="card card-search">
+          <input
+            className="search"
+            type="text"
+            placeholder="Начните вводить текст..."
+          />
+
+          <i className="material-icons enormoustLargeIcon">search</i>
+        </div>
       </div>
     </div>
   );
