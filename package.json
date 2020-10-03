@@ -1,0 +1,30 @@
+{
+  "name": "kfu-schedule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run client\" \"nodemon index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artif1c1al/kfu-schedule.git"
+  },
+  "proxy": "http://localhost:3001",
+  "author": "Memet Artem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artif1c1al/kfu-schedule/issues"
+  },
+  "homepage": "https://github.com/artif1c1al/kfu-schedule#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
