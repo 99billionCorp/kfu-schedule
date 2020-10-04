@@ -1,13 +1,23 @@
+body{
+  background-color: #F8F8F8;
+}
+
 .App {
 }
 
 a{
   text-decoration: none;
   color: black;
+  &:hover{
+    color: #00478c;
+  }
 }
 
 .container{
-  margin: 0 10px 0 10px;
+  @media only screen and (min-width: 768px) {
+    width: 1140px;
+    margin: 0 auto;
+  }
 }
 
 .App-logo {

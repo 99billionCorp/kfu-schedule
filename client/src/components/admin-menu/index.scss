@@ -1,0 +1,45 @@
+.adminMenu{
+  display: grid;
+  grid-gap: 30px;
+  width: 263px;
+  margin-top: 153px;
+  &>div{
+    background-color: #fff;
+    box-shadow: 0 1px 1px #9ba3b3;
+    border-radius: 3px;
+    border: 1px solid #e7e7e7;
+  }
+  select{
+    width: 263px;
+    height: 59px;
+    font-size: 18px;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    option{
+      height: 50px;
+      width: 263px;
+    }
+  }
+  &__block{
+    padding: 18px;
+    h3{
+      font-size: 24px;
+    }
+    &__link{
+      a{
+        margin-top: 12px;
+        font-size: 17px;
+      }
+    }
+    &__links{
+      display: flex;
+      flex-direction: column;
+      margin-left: 12px;
+      a{
+        margin-top: 12px;
+        font-size: 18px;
+      }
+    }
+  }
+}
