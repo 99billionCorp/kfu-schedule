@@ -1,25 +1,33 @@
-body{
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   background-color: #F8F8F8;
 }
 
-.App {
-}
-
-input, input:focus{
+input,
+input:focus {
   outline: none;
 }
 
-a{
+a {
   text-decoration: none;
   color: black;
-  &:hover{
+
+  &:hover {
     color: #00478c;
   }
 }
 
-.container{
+.container {
   //width: 355px;
   margin: 0 10px;
+
   @media only screen and (min-width: 768px) {
     width: 1140px;
     margin: 0 auto;
@@ -56,6 +64,7 @@ a{
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
