@@ -7,7 +7,7 @@ import {BrowserRouter} from 'react-router-dom'
 import './App.scss'
 
 import {Context} from "./context";
-import Admin from "./components/pages/admin";
+import Admin from "./components/pages/admin/admin";
 
 function App() {
   const { request } = useHttp()
