@@ -1,34 +1,36 @@
-import React, {useEffect, useState} from "react";
-import "./scss/index.scss";
-import { useHttp } from './hooks/http.hook'
-import {Route, Switch} from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { useHttp } from "./hooks/http.hook";
+import { Route, Switch } from "react-router-dom";
 import Schedule from "./components/pages/schedule";
-import {BrowserRouter} from 'react-router-dom'
-import './App.scss'
+import { BrowserRouter } from "react-router-dom";
+import "./scss/index.scss";
 
-import {Context} from "./context";
+import { Context } from "./context";
 import Admin from "./components/pages/admin/admin";
 
 function App() {
-  const { request } = useHttp()
-  const [data, setData] = useState(null)
+  const { request } = useHttp();
+  const [data, setData] = useState(null);
 
-    useEffect( ()=>{
-        request('/api', 'POST', {test: 'test'}, {header: 'hhhhhh'}).then(d=>{
-            setData(d)
-        })
-    }, [])
+  useEffect(() => {
+    request("/api", "POST", { test: "test" }, { header: "hhhhhh" }).then(
+      (d) => {
+        setData(d);
+      }
+    );
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Context.Provider value={data}>
-        <div className='container'>
-            <BrowserRouter>
-                <Switch>
-                    <Route component={Schedule} path='/' exact={true}/>
-                    <Route component={Admin} path='/admin'/>
-                </Switch>
-            </BrowserRouter>
-        </div>
+      <div className="container">
+        <BrowserRouter>
+          <Switch>
+            <Route component={Schedule} path="/" exact={true} />
+            <Route component={Admin} path="/admin" />
+          </Switch>
+        </BrowserRouter>
+      </div>
     </Context.Provider>
   );
 }

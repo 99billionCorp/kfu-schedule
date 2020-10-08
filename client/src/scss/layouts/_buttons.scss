@@ -1,6 +1,8 @@
 .btn {
   @include button;
+
 }
+
 
 .btn-dark {
   background-color: rgba(0, 0, 0, 0.63);
@@ -13,4 +15,8 @@
 
 .btn-large {
   padding: 10px 30px;
+}
+
+.btn-card {
+  width: 70%;
 }
