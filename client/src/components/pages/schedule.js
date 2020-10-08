@@ -22,14 +22,7 @@ export default function Schedule() {
               <p className="week__even-odd">
                 ЧЕТНАЯ неделя
                 {/* <ButtonLink text="изменить" /> */}
-                <button
-                  className="btn week__change"
-                  onClick={() => {
-                    console.log("hi");
-                  }}
-                >
-                  изменить
-                </button>
+                <button className="btn week__change">изменить</button>
               </p>
             </div>
             {days}
