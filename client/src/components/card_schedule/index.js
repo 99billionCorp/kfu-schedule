@@ -10,8 +10,7 @@ const callSchedule = [
   { lessonName: "11:30 - 13:00" },
 ];
 
-export default function CardDay({ today = false, day = {'lessons': []} }) {
-  console.log(day)
+export default function CardDay({ today = false, day = { lessons: [] } }) {
   const [isTodaySchedule, setIsTodaySchedule] = useState(true);
 
   const displayLessons = ({ lessonName, classroom, teacher }, index) => {
@@ -29,6 +28,8 @@ export default function CardDay({ today = false, day = {'lessons': []} }) {
   const weekDay = isTodaySchedule
     ? day["lessons"].map(displayLessons)
     : callSchedule.map(displayLessons);
+
+  // console.log(day);
 
   const date = new Date();
   return (

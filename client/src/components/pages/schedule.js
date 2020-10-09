@@ -5,11 +5,14 @@ import { Context } from "../../context";
 import ButtonLink from "./../button-link";
 import uuid from "react-uuid";
 
+function euroWeek(day) {
+  return day === 0 ? 6 : day - 1;
+}
+
 export default function Schedule() {
   return (
     <Context.Consumer>
       {(data) => {
-        console.log(data)
         const days = data
           ? data.map((day) => {
               return <CardDay key={uuid()} day={day} />;
@@ -31,9 +34,10 @@ export default function Schedule() {
         );
 
         const todayDay = new Date().getDay();
+        // console.log(data[todayDay]);
         const todaySchedule = data ? (
           <div className="margin-bottom-large">
-            <CardDay today={true} day={data[todayDay]} />
+            <CardDay today={true} day={data[euroWeek(todayDay)]} />
           </div>
         ) : (
           true
