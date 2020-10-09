@@ -9,11 +9,12 @@ export default function Schedule() {
   return (
     <Context.Consumer>
       {(data) => {
+        console.log(data)
         const days = data
           ? data.map((day) => {
               return <CardDay key={uuid()} day={day} />;
             })
-          : true;
+          : false;
 
         const week = (
           <div className="week">
