@@ -1,8 +1,8 @@
 import React from "react";
-import Menu from "../menu";
-import CardDay from "../card_schedule/cardDay";
+import Menu from "../Menu";
+import CardDay from "../cardDay/CardDay";
 import { Context } from "../../context";
-import ButtonLink from "../button-link";
+import ButtonLink from "../ButtonLink";
 import uuid from "react-uuid";
 
 function euroWeek(day) {
@@ -44,12 +44,15 @@ export default function Schedule() {
         );
 
         return (
-          <>
-            <Menu />
+          <div className="basic-margins">
+            <div className="header margin-bottom-tiny">
+              <ButtonLink icon="filter_list" text="Фильтр" />
+              <ButtonLink icon="schedule" text="Расписание" />
+            </div>
             {data && todaySchedule}
 
             {data && week}
-          </>
+          </div>
         );
       }}
     </Context.Consumer>

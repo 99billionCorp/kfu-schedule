@@ -1,6 +1,6 @@
 import React from "react";
-import AdminMenu from "../admin-components/admin-menu";
-import SearchPanel from "../search-panel";
+import AdminMenu from "../admin-components/Admin-menu.js";
+import SearchPanel from "../SearchPanel";
 
 export default function Admin() {
   return (

@@ -1,8 +1,6 @@
 import React from "react";
-// import "./index.scss";
-import "./../../../scss/layouts/_card.scss";
 
-export default function lesson({ lessonNum, lessonName, teacher, classroom }) {
+export default function Lesson({ lessonNum, lessonName, teacher, classroom }) {
   return (
     <div className="card__lesson">
       <div className="card__name ">{lessonName}</div>

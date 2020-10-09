@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useHttp } from "./hooks/http.hook";
 import { Route, Switch } from "react-router-dom";
-import Schedule from "./components/pages/schedule";
 import { BrowserRouter } from "react-router-dom";
+import { Context } from "./context";
 import "./scss/index.scss";
 
-import { Context } from "./context";
-import Admin from "./components/pages/admin";
+import Filter from "./components/pages/Filter";
+import Schedule from "./components/pages/Schedule";
+import Search from "./components/pages/Search.js";
+import Admin from "./components/pages/Admin";
+import Info from "./components/pages/Info";
 
 function App() {
   const { request } = useHttp();
@@ -27,6 +30,9 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route component={Schedule} path="/" exact={true} />
+            <Route component={Search} path="/search" />
+            <Route component={Filter} path="/filter" />
+            <Route component={Info} path="/info" />
             {/* <Route component={Admin} path="/admin" /> */}
           </Switch>
         </BrowserRouter>

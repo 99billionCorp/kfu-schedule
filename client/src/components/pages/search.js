@@ -1,25 +1,19 @@
-import React from "react";
-import ButtonLink from "../button-link";
+import React, { useRef } from "react";
+import ButtonLink from "../ButtonLink.js";
+import SearchPanes from "./../SearchPanel";
 export default function Search() {
+  const inputRef = useRef(null);
   return (
-    <>
-      <div className="card card-fullScreen"></div>
-
-      <div className="header margin-bottom-medium">
-        <ButtonLink text="Фильтор" />
-        <button className="btn header__btn">
-          <i className="material-icons">schedule</i>
-          Расписание
-        </button>
+    <i>
+      <div className="header margin-bottom-tiny">
+        <ButtonLink icon="filter_list" text="Фильтр" />
+        <ButtonLink icon="schedule" text="Расписание" />
       </div>
 
-      <input
-        className="search"
-        type="text"
-        placeholder="Начните вводить текст..."
-      />
-
-      {/* <i className="material-icons enormoustLargeIcon">search</i> */}
-    </>
+      <SearchPanes />
+      <div className="card card-search">
+        <i className="material-icons enormoustLargeIcon">search</i>
+      </div>
+    </i>
   );
 }

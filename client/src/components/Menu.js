@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonLink from "../button-link";
+import ButtonLink from "./ButtonLink.js";
 
 export default function Menu() {
   return (
