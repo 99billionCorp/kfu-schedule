@@ -1,8 +1,8 @@
 import React from "react";
 import Menu from "../menu";
-import CardDay from "../card_schedule";
+import CardDay from "../card_schedule/cardDay";
 import { Context } from "../../context";
-import ButtonLink from "./../button-link";
+import ButtonLink from "../button-link";
 import uuid from "react-uuid";
 
 function euroWeek(day) {

@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./scss/index.scss";
 
 import { Context } from "./context";
-import Admin from "./components/pages/admin/admin";
+import Admin from "./components/pages/admin";
 
 function App() {
   const { request } = useHttp();
@@ -27,7 +27,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route component={Schedule} path="/" exact={true} />
-            <Route component={Admin} path="/admin" />
+            {/* <Route component={Admin} path="/admin" /> */}
           </Switch>
         </BrowserRouter>
       </div>

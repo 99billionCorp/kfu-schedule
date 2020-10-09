@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./../../scss/layouts/_card.scss";
-import Lesson from "./lesson/index";
-import ButtonLink from "./../button-link";
+import Lesson from "./lesson";
+import ButtonLink from "../button-link";
 import uuid from "react-uuid";
 
 const callSchedule = [
