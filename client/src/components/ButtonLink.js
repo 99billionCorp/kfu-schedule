@@ -6,10 +6,16 @@ export default function ButtonLink({
   text = "",
   icon = "",
   onClick,
+  bgc = "$primary-gray",
+  color = "black",
 }) {
+  const style = {
+    backgroundColor: bgc,
+    color: color,
+  };
   // console.log(href);
   return (
-    <a href={href} className="btn" onClick={onClick}>
+    <a href={href} className="btn" onClick={onClick} style={style}>
       <MaterialIcon icon={icon} color="#212121" />
       <span>{text}</span>
     </a>

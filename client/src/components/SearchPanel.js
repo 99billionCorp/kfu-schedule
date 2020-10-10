@@ -6,7 +6,7 @@ export default function SearchPanel() {
     <div className="searchPanel">
       <MaterialIcon icon="search" />
       <input
-        className="search"
+        className="search-input"
         type="text"
         autoFocus="true"
         placeholder="Начните вводить текст..."

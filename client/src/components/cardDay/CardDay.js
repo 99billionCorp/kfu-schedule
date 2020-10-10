@@ -25,42 +25,47 @@ export default function CardDay({ today = false, day = { lessons: [] } }) {
     );
   };
 
-  const weekDay = isTodaySchedule
+  const todaySchedule = isTodaySchedule
     ? day["lessons"].map(displayLessons)
     : callSchedule.map(displayLessons);
 
-  // console.log(day);
-
   const date = new Date();
+
+  const weekDay = (day) => {
+    return "Сегодня " + (day.weekday ? day.weekday : "ВЫХОДНОЙ!");
+  };
+
+  const cardDate = (date) => {
+    return `${
+      (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) +
+      "." +
+      (date.getMonth() < 10 ? "0" + date.getMonth() : date.getMonth())
+    }`;
+  };
+
+  const toggleScheduleType = () => (
+    <div className="btn-card">
+      <ButtonLink
+        text={
+          isTodaySchedule
+            ? "Расписание звонков"
+            : "Расписание занятий на сегодня"
+        }
+        onClick={() => {
+          setIsTodaySchedule(!isTodaySchedule);
+        }}
+      />
+    </div>
+  );
+
   return (
     <div className="card  margin-bottom-small">
       <div className="card__header">
-        <span className="card__weekDay">
-          {(today ? "Сегодня " : "") + day["weekday"]}
-        </span>
-        <span className="card__date">
-          {`${
-            (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) +
-            "." +
-            (date.getMonth() < 10 ? "0" + date.getMonth() : date.getMonth())
-          }`}
-        </span>
+        <span className="card__weekDay">{weekDay(day)}</span>
+        <span className="card__date">{cardDate(date)}</span>
       </div>
-      <div className="lessons">{weekDay}</div>
-      {today && (
-        <div className="btn-card">
-          <ButtonLink
-            text={
-              isTodaySchedule
-                ? "Расписание звонков"
-                : "Расписание занятий на сегодня"
-            }
-            onClick={() => {
-              setIsTodaySchedule(!isTodaySchedule);
-            }}
-          />
-        </div>
-      )}
+      <div className="lessons">{todaySchedule}</div>
+      {today && toggleScheduleType()}
     </div>
   );
 }

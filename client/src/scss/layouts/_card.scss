@@ -49,6 +49,9 @@
   &__lesson {
     margin: 0 30px 20px 40px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 
     &::before {
@@ -108,13 +111,8 @@
 
 
   &-search {
-    position: relative;
-    top: 0px;
-    bottom: 1500px;
-    height: calc(100vh - 100px);
-    left: 0px;
-    right: 0px;
-    z-index: -1;
+    overflow: hidden;
+    height: calc(100vh - 100px); 
   }
 
   &-fullScreen {

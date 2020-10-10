@@ -46,8 +46,8 @@ export default function Schedule() {
         return (
           <div className="basic-margins">
             <div className="header margin-bottom-tiny">
-              <ButtonLink icon="filter_list" text="Фильтр" />
-              <ButtonLink icon="schedule" text="Расписание" />
+              <ButtonLink icon="filter_list" text="Фильтр" href="/filter" />
+              <ButtonLink icon="search" text="Найти" href="/search" />
             </div>
             {data && todaySchedule}
 

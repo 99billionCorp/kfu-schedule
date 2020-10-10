@@ -1,5 +1,6 @@
 import React from "react";
 import MaterialIcon from "material-icons-react";
+import ButtonLink from "./../ButtonLink";
 
 export function InputFilter() {
   return (
@@ -17,9 +18,11 @@ export function InputFilter() {
       />
       <input
         className="input-form filter__input"
-        placeholder="Группа.."
+        placeholder="Группа..."
         type="text"
       />
+
+      {/* <ButtonLink text="Сохранить" bgc="$primary-gray-dark" color="white" /> */}
       <input
         className="btn btn-dark btn-large filter__submit"
         type="submit"

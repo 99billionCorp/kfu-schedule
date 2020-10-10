@@ -15,10 +15,15 @@
 }
 
 .enormoustLargeIcon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
   font-size: 25rem;
-  color: #bbb;
+  // color: #bbb;
   z-index: 100;
+}
+
+.height-100vh {
+  height: 100vh;
+  overflow: hidden;
 }
