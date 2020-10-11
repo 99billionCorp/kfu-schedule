@@ -1,5 +1,5 @@
 import React from "react";
-import AdminMenu from "../admin-components/Admin-menu.js";
+import AdminMenu from "../admin-components/admin-menu.js";
 import SearchPanel from "../SearchPanel";
 
 export default function Admin() {
