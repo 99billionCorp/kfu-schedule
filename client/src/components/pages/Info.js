@@ -1,4 +1,5 @@
 import React from "react";
+import ButtonLink from "../ButtonLink";
 
 export default function Info() {
   return (
@@ -10,10 +11,12 @@ export default function Info() {
           расписание пар и узнать, в каких аудиториях проходит занятия у
           преподавателей
         </p>
-        <input
-          className="btn btn-dark  btn-padding-no filter__submit"
-          // type="submit"
-          value="Вернуться назад"
+
+        <ButtonLink
+          href="/filter"
+          text="Вернуться назад"
+          bgc="#777"
+          color="white"
         />
       </div>
     </div>

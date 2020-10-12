@@ -1,5 +1,6 @@
 import React from "react";
 import MaterialIcon from "material-icons-react";
+import { Link } from "react-router-dom";
 
 export default function ButtonLink({
   href = "#",
@@ -15,9 +16,11 @@ export default function ButtonLink({
   };
   // console.log(href);
   return (
-    <a href={href} className="btn" onClick={onClick} style={style}>
-      <MaterialIcon icon={icon} color="#212121" />
-      <span>{text}</span>
-    </a>
+    <Link to={href}>
+      <div className="btn" onClick={onClick} style={style}>
+        <MaterialIcon icon={icon} color="#212121" />
+        <span>{text}</span>
+      </div>
+    </Link>
   );
 }

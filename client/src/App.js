@@ -5,9 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Context } from "./context";
 import "./scss/index.scss";
 
-import Filter from "./components/pages/filter";
-import Schedule from "./components/pages/schedule";
-import Search from "./components/pages/search.js";
+import Filter from "./components/pages/Filter";
+import Schedule from "./components/pages/Schedule";
+import Search from "./components/pages/Search";
 import Admin from "./components/pages/admin";
 import Info from "./components/pages/Info";
 

@@ -32,7 +32,7 @@ export default function CardDay({ today = false, day = { lessons: [] } }) {
   const date = new Date();
 
   const weekDay = (day) => {
-    return "Сегодня " + (day.weekday ? day.weekday : "ВЫХОДНОЙ!");
+    return day.weekday ? day.weekday : "ВЫХОДНОЙ!";
   };
 
   const cardDate = (date) => {
@@ -61,7 +61,9 @@ export default function CardDay({ today = false, day = { lessons: [] } }) {
   return (
     <div className="card  margin-bottom-small">
       <div className="card__header">
-        <span className="card__weekDay">{weekDay(day)}</span>
+        <span className="card__weekDay">
+          {(today ? "Сегодня " : "") + weekDay(day)}
+        </span>
         <span className="card__date">{cardDate(date)}</span>
       </div>
       <div className="lessons">{todaySchedule}</div>
