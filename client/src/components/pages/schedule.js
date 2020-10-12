@@ -13,9 +13,10 @@ export default function Schedule() {
   return (
     <Context.Consumer>
       {(data) => {
+        console.log(data)
         const days = data
-          ? data.map((day) => {
-              return <CardDay key={uuid()} day={day} />;
+          ? Object.keys(data).map((key) => {
+              return <CardDay key={uuid()} day={data[key]} />;
             })
           : false;
 
@@ -31,9 +32,9 @@ export default function Schedule() {
             </div>
             {days}
           </div>
-        );
+        )
 
-        const todayDay = new Date().getDay();
+        const todayDay = new Date().getDay()
         // console.log(data[todayDay]);
         const todaySchedule = data ? (
           <div className="margin-bottom-large">
@@ -41,7 +42,7 @@ export default function Schedule() {
           </div>
         ) : (
           true
-        );
+        )
 
         return (
           <div className="basic-margins">

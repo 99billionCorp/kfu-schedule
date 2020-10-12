@@ -19,6 +19,7 @@ function App() {
     request("/api", "POST", { test: "test" }, { header: "hhhhhh" }).then(
       (d) => {
         setData(d);
+        console.log(data)
       }
     );
     // eslint-disable-next-line
