@@ -30,7 +30,7 @@ function App() {
         <BrowserRouter>
           <Switch>
             <Route component={Schedule} path="/" exact={true} />
-            {/* <Route component={Search} path="/search" /> */}
+            <Route component={Search} path="/search" />
             <Route component={Filter} path="/filter" />
             <Route component={Info} path="/info" />
             {/* <Route component={Admin} path="/admin" /> */}
