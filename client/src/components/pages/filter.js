@@ -3,8 +3,37 @@ import MaterialIcon from "material-icons-react";
 import ButtonLink from "../ButtonLink";
 import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
+import {
+  fade,
+  ThemeProvider,
+  withStyles,
+  makeStyles,
+  createMuiTheme,
+} from "@material-ui/core/styles";
 
 import Autocomplete from "@material-ui/lab/Autocomplete";
+
+const InputField = withStyles({
+  root: {
+    "& label.Mui-focused": {
+      color: "#777",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#777",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "#777",
+      },
+      "&:hover fieldset": {
+        borderColor: "#999",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#777",
+      },
+    },
+  },
+})(TextField);
 
 export function InputFilter() {
   const course = [
@@ -39,20 +68,22 @@ export function InputFilter() {
         options={faculty}
         style={{ width: 300 }}
         getOptionLabel={(option) => option.title}
-        renderInput={(params) => <TextField {...params} label="Факультет..." />}
+        renderInput={(params) => (
+          <InputField {...params} label="Факультет..." />
+        )}
       />
       <Autocomplete
         options={course}
         style={{ width: 300 }}
         getOptionLabel={(option) => option.title}
-        renderInput={(params) => <TextField {...params} label="Курс..." />}
+        renderInput={(params) => <InputField {...params} label="Курс..." />}
       />
 
       <Autocomplete
         options={course}
         style={{ width: 300 }}
         getOptionLabel={(option) => option.title}
-        renderInput={(params) => <TextField {...params} label="Группа..." />}
+        renderInput={(params) => <InputField {...params} label="Группа..." />}
       />
       {/* <input
         className="input-form filter__input"
