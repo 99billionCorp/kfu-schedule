@@ -10,10 +10,10 @@ const callSchedule = [
   { lessonName: "11:30 - 13:00" },
 ];
 
-export default function CardDay({ today = false, day = { lessons: [] } }) {
-  const [isTodaySchedule, setIsTodaySchedule] = useState(true);
+export default function CardDay({ today = false, day = {} }) {
+  const [isTodaySchedule, setIsTodaySchedule] = useState(true)
 
-  const displayLessons = ({ lessonName, classroom, teacher }, index) => {
+  const displayLesson = ({ lessonName, classroom, teacher }, index) => {
     return (
       <Lesson
         key={uuid()}
@@ -22,18 +22,21 @@ export default function CardDay({ today = false, day = { lessons: [] } }) {
         lessonNum={index + 1}
         teacher={teacher}
       />
-    );
-  };
+    )
+  }
 
-  const todaySchedule = isTodaySchedule
-    ? day["lessons"].map(displayLessons)
-    : callSchedule.map(displayLessons);
+  // const todaySchedule = isTodaySchedule
+  //   ? day["lectures"].map(displayLesson)
+  //   : callSchedule.map(displayLesson)
 
-  const date = new Date();
+  const todaySchedule = day["lectures"].map(displayLesson)
+
+
+  const date = new Date()
 
   const weekDay = (day) => {
-    return day.weekday ? day.weekday : "ВЫХОДНОЙ!";
-  };
+    return day.weekday ? day.weekday : "ВЫХОДНОЙ!"
+  }
 
   const cardDate = (date) => {
     return `${

@@ -13,13 +13,11 @@ export default function Schedule() {
   return (
     <Context.Consumer>
       {(data) => {
-        console.log(data)
-        const days = data
-          ? Object.keys(data).map((key) => {
-              return <CardDay key={uuid()} day={data[key]} />;
-            })
-          : false;
-
+        const scheduleData = Object.keys(data).map(key => ({'lectures': data[key]['odd'], 'weekday': key}))
+        console.log(scheduleData)
+        const days = scheduleData.map((dayData) => {
+          return <CardDay key={uuid()} dayData={dayData} />
+        })
         const week = (
           <div className="week">
             <div className="week__header">

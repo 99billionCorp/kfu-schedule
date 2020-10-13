@@ -8,7 +8,7 @@ import "./scss/index.scss";
 import Filter from "./components/pages/Filter";
 import Schedule from "./components/pages/Schedule";
 import Search from "./components/pages/Search";
-import Admin from "./components/pages/admin";
+import Admin from "./components/pages/Admin";
 import Info from "./components/pages/Info";
 
 function App() {
@@ -18,23 +18,21 @@ function App() {
   useEffect(() => {
     request("/api", "POST", { test: "test" }, { header: "hhhhhh" }).then(
       (d) => {
-        setData(d);
-        console.log(data)
+        setData(d)
       }
-    );
-    // eslint-disable-next-line
-  }, []);
+    )
+  }, [])
 
-  return (
+  return data && (
     <Context.Provider value={data}>
       <div className="container">
         <BrowserRouter>
           <Switch>
             <Route component={Schedule} path="/" exact={true} />
+            <Route component={Admin} path="/admin" />
             <Route component={Search} path="/search" />
             <Route component={Filter} path="/filter" />
             <Route component={Info} path="/info" />
-            {/* <Route component={Admin} path="/admin" /> */}
           </Switch>
         </BrowserRouter>
       </div>
