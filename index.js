@@ -9,28 +9,6 @@ app.use(express.json())
 
 const schedule = JSON.parse(fs.readFileSync(path.join(__dirname, 'utils', 'data.json'), 'utf-8'))
 
-const weekdays = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница']
-const lectures = ['Математический анализ', 'Программирование', 'Правовые основы проф деятльности', 'ОБЖ', 'Алгебра']
-const teachers = ['Пашкова Юлия Сергеевна', 'Старков Павел Александрович', 'Муратов Мустафа Абдурешитович', 'Хазова Юлия Александровна']
-
-const createLesson = ()=>{
-    return {
-        lessonName: lectures[Math.floor(Math.random() * 5)],
-        teacher: teachers[Math.floor(Math.random() * 4)],
-        classroom: Math.floor(Math.random() * 500)
-    }
-}
-
-const createDay = (id) => {
-    const lessons = new Array(4).fill({}).map(e => {
-        return createLesson()
-    })
-    return {
-        weekday: weekdays[id],
-        lessons
-    }
-}
-
 app.post('/api/', (req,res)=>{
     console.log('Woow', )
     const data = schedule[Object.keys(schedule)[0]]

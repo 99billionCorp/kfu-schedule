@@ -3,7 +3,6 @@
 
 }
 
-
 .btn-dark {
   background-color: rgba(0, 0, 0, 0.63);
   color: white;
@@ -19,4 +18,10 @@
 
 .btn-card {
   width: 70%;
+}
+
+.buttonLink, .buttonLink span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
