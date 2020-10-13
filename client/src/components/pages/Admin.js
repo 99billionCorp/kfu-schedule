@@ -1,15 +1,13 @@
 import React from "react";
 import AdminMenu from "../admin-components/AdminМenu";
-import SearchPanel from "../SearchPanel";
+import CreateStructuralUnit from "../admin-components/AdminBlocks/CreateStructuralUnit";
 
 export default function Admin() {
   return (
-    <div className="adminPage">
+    <div className="admin">
       <AdminMenu />
-      <div className="adminPage-content">
-        <div className="adminPage-content__info">
-          <SearchPanel />
-        </div>
+      <div className="admin__content">
+        <CreateStructuralUnit />
       </div>
     </div>
   );

@@ -1,11 +1,45 @@
-.adminPage {
-  display: flex;
-  flex-direction: row;
+.admin {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  max-width: 1000px;
+  margin: 20px auto;
+  grid-template-areas: "menu content";
 
-  &-content {
+  &__menu {
+    grid-area: menu;
+  }
+
+  &__content {
     margin-left: 30px;
     margin-top: 35px;
-
-    input {}
+    grid-area: content;
   }
+
+   &__card {
+    margin-bottom: 20px;
+    // padding-bottom: 20px !important;
+  }
+
+  &__list {
+
+  }
+  
+  &__menuHeader {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  &__links {
+    position: relative;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+  }
+
+
+
 }
+

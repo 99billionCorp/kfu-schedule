@@ -7,12 +7,14 @@
   border-radius: 5px;
 }
 
-
 .filter__input {
   margin-bottom: .5rem;
+}
 
-  // &:last-child {
-  //   background-color: purple;
-  //   margin-bottom: 3rem !important;
-  // }
+.inputText {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
 }
