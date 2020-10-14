@@ -1,7 +1,7 @@
 import React from "react";
 
 const renderListItem = (arr) => {
-  return arr.map((el) => <p>{el}</p>);
+  return arr.map((el, i) => <p key={i}>{el}</p>);
 };
 
 export default function AdminList({ arr = [], header = "" }) {

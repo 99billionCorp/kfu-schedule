@@ -6,6 +6,7 @@
   grid-template-areas: "menu content";
 
   &__menu {
+    // margin-top: 50px;
     grid-area: menu;
   }
 
@@ -17,7 +18,11 @@
 
    &__card {
     margin-bottom: 20px;
+    padding: 20px !important;
     // padding-bottom: 20px !important;
+     b {
+      margin-bottom: 25px;
+    }
   }
 
   &__list {

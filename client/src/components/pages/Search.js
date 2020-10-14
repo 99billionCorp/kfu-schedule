@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import ButtonLink from "../ButtonLink.js";
 import SearchPanes from "../SearchPanel";
 import MaterialIcon from "material-icons-react";

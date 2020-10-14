@@ -31,11 +31,11 @@ export default function AdminMenu() {
       </div>
 
       <div className="card admin__card">
-        <MenuDropdown itemList={subdivision} />
+        <MenuDropdown arr={subdivision} />
       </div>
 
       <div className="card admin__card">
-        <MenuDropdown itemList={subdivision} />
+        <MenuDropdown arr={subdivision} />
       </div>
 
       <div className="card admin__card">
