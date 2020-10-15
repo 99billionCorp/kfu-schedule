@@ -1,67 +1,62 @@
-import React, { useEffect, useState } from "react";
-import { useHttp } from "./hooks/http.hook";
-import { Route, Switch } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
-import { Context } from "./context";
-import "./scss/index.scss";
+import React, {useEffect, useState} from "react"
+import {useHttp} from "./hooks/http.hook"
+import {Route, Switch} from "react-router-dom"
+import {BrowserRouter} from "react-router-dom"
+import {Context} from "./context"
+import "./scss/index.scss"
 
-import Filter from "./components/pages/Filter";
-import Schedule from "./components/pages/Schedule";
-import Search from "./components/pages/Search";
-import Admin from "./components/pages/Admin";
-import Info from "./components/pages/Info";
+import Filter from "./components/pages/Filter"
+import Schedule from "./components/pages/Schedule"
+import Search from "./components/pages/Search"
+import Admin from "./components/pages/Admin"
+import Info from "./components/pages/Info"
 
 function App() {
-  const { request } = useHttp();
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    request("/api", "POST", { test: "test" }, { header: "hhhhhh" }).then(
-      (d) => {
-        setData(d)
+   const {request} = useHttp()
+   const [scheduleData, setScheduleData] = useState(null)
+   const [filters, setFilters] = useState(null)
+   const [filter, setFilter] = useState({
+         structuralSubdivision: '',
+         faculty: '',
+         course: '',
+         doc: '',
+         group: '',
+         even: 'even'
       }
-    )
-  }, [])
+   )
 
-  return data && (
-    <Context.Provider value={data}>
-      <div className="container">
-        <BrowserRouter>
-          <Switch>
-            <Route component={Schedule} path="/" exact={true} />
-            <Route component={Admin} path="/admin" />
-            <Route component={Search} path="/search" />
-            <Route component={Filter} path="/filter" />
-            <Route component={Info} path="/info" />
-          </Switch>
-        </BrowserRouter>
-      </div>
-    </Context.Provider>
-  );
+   useEffect(() => {
+      request("/api", 'POST', {filter}).then(setScheduleData)
+      request('/api/filters/getAll', 'POST', {filter}).then(setFilters)
+   }, [filter])
+
+   function changeFilter(value, target) {
+      setFilter({
+         ...filter,
+         [target]: value
+      })
+   }
+
+   useEffect(() => {
+      console.log(filter)
+   }, [filter])
+
+   console.log(filters)
+   return scheduleData && filters && (
+      <Context.Provider value={{scheduleData, filters, changeFilter, filter}}>
+         <div className="container">
+            <BrowserRouter>
+               <Switch>
+                  <Route component={Schedule} path="/" exact={true}/>
+                  <Route component={Admin} path="/admin"/>
+                  <Route component={Search} path="/search"/>
+                  <Route component={Filter} path="/filter"/>
+                  <Route component={Info} path="/info"/>
+               </Switch>
+            </BrowserRouter>
+         </div>
+      </Context.Provider>
+   )
 }
 
-export default App;
-//
-// <div className="App">
-//   <div className="header margin-bottom-medium">
-//     <button className="btn header__btn">
-//       <i className="material-icons">filter_list</i>
-//       Фильтр
-//     </button>
-//
-//     <button className="btn header__btn">
-//       <i className="material-icons">schedule</i>
-//       Расписание
-//     </button>
-//
-//     <div className="card card-search">
-//       <input
-//           className="search"
-//           type="text"
-//           placeholder="Начните вводить текст..."
-//       />
-//
-//       <i className="material-icons enormoustLargeIcon">search</i>
-//     </div>
-//   </div>
-// </div>
+export default App

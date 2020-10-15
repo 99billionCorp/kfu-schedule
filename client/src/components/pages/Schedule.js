@@ -4,26 +4,34 @@ import CardDay from "../cardDay/CardDay";
 import {Context} from "../../context";
 import ButtonLink from "../ButtonLink";
 import uuid from "react-uuid";
+import {capitalize} from "@material-ui/core";
 
 function euroWeek(day) {
-   return day === 0 ? 6 : day - 1;
+   return !day ? 6 : --day
 }
 
 export default function Schedule() {
    return (
       <Context.Consumer>
-         {(data) => {
-            const scheduleData = Object.keys(data).map(key => ({'lectures': data[key]['odd'], 'weekday': key}))
-            const days = scheduleData.map((dayData) => {
-               return <CardDay key={uuid()} dayData={dayData}/>
+         {({scheduleData, filter, changeFilter}) => {
+            console.log(scheduleData)
+            const schedulePreparedData = Object.keys(scheduleData)
+               .map(key => ({
+                  'lectures': scheduleData[key][filter.even],
+                  'weekday': capitalize(key)
+               }))
+            const days = schedulePreparedData.map((dayData) => {
+               return <CardDay dayData={dayData}/>
             })
             const week = (
                <div className="week">
                   <div className="week__header">
                      <p className="week__title">Актуальное расписание</p>
                      <p className="week__even-odd">
-                        ЧЕТНАЯ неделя
-                        <ButtonLink text="изменить"/>
+                        {filter.even === 'even' ? 'ЧЕТНАЯ' : 'НЕЧЕТНАЯ'} неделя
+                        <ButtonLink text="изменить" onClick={()=>{
+                           changeFilter(filter.even === 'even' ? 'odd' : 'even', 'even')
+                        }}/>
                      </p>
                   </div>
                   {days}
@@ -33,7 +41,7 @@ export default function Schedule() {
             const todayDay = new Date().getDay()
             const todaySchedule = (
                <div className="margin-bottom-medium">
-                  <CardDay today={true} dayData={scheduleData[euroWeek(todayDay)]}/>
+                  <CardDay today={true} dayData={schedulePreparedData[euroWeek(todayDay)]}/>
                </div>
             )
 
@@ -46,8 +54,8 @@ export default function Schedule() {
                   {todaySchedule}
                   {week}
                </div>
-            );
+            )
          }}
       </Context.Consumer>
-   );
+   )
 }
