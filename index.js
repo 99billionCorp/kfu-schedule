@@ -16,18 +16,23 @@ app.post('/api/filters/getAll', (req, res) => {
    res.json(data)
 })
 
-const defaultFilter = {
-   doc: Object.keys(schedule)[0],
-   group: 'МАТ-б-о-201(1)'
-}
+const defaultScheduleDoc = schedule[Object.keys(schedule)[0]]
+const defaultSchedule = defaultScheduleDoc[Object.keys(defaultScheduleDoc)[0]]
 
-app.post('/api/', (req, res) => {
+app.post('/api/schedule', (req, res) => {
    const {filter} = req.body
    const {doc, group} = filter
-   const data = schedule[doc || defaultFilter.doc]
-   const send = data[doc && group || defaultFilter.group]
-   res.json(send)
+   const data = doc && schedule && schedule[doc] && schedule[doc][group] ? schedule[doc][group] : defaultSchedule
+
+   res.json(data)
 })
+
+if(process.env.NODE_ENV === 'production'){
+   app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+   app.get('*', (req, res)=>{
+      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+   })
+}
 
 app.listen(PORT, () => {
    console.log(`Server has been started on ${PORT}...`)

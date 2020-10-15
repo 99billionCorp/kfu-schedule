@@ -47,7 +47,7 @@ function InputFilter({filters, filter, changeFilter}) {
       value: doc
    }))
 
-   const groups = filter['doc'] && filters[filter['doc']].map(gr => ({title: gr, value: gr})) || [{title: ''}]
+   const groups = filter['doc'] && filters[filter['doc']].map(gr => ({title: gr, value: gr})) || [{title: 'Выберите документ.'}]
 
    const faculty = [
       {
@@ -73,7 +73,6 @@ function InputFilter({filters, filter, changeFilter}) {
          />
          <Autocomplete
             options={docs}
-            defaultChecked={filter['doc']}
             style={{width: 300, marginTop: 10}}
             getOptionLabel={(option) => option.title}
             renderInput={(params) => <InputField {...params} label="Документ..."/>}
@@ -83,7 +82,6 @@ function InputFilter({filters, filter, changeFilter}) {
          />
          <Autocomplete
             options={groups}
-            defaultChecked={filter['group']}
             style={{width: 300, margin: '10px 0 10px'}}
             getOptionLabel={(option) => option.title}
             renderInput={(params) => <InputField {...params} label="Группа..."/>}

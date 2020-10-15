@@ -33,7 +33,7 @@ function App() {
    }, [])
 
    useEffect(() => {
-      request("/api", 'POST', {filter}).then(setScheduleData)
+      request("/api/schedule", 'POST', {filter}).then(setScheduleData)
       storage('filter', filter)
    }, [filter])
 

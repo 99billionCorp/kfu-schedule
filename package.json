@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "server": "cross-env NODE_ENV=development nodemon index.js",
     "client": "npm run start --prefix client",
     "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
     "dev": "concurrently \"npm run client\" \"nodemon index.js\""
   },
   "repository": {
@@ -25,13 +26,10 @@
     "nodemon": "^2.0.4"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@material-ui/lab": "^4.0.0-alpha.56",
     "config": "^3.3.2",
+    "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "mongoose": "^5.10.7",
-    "react-uuid": "^1.0.2",
-    "uuid4": "^2.0.2",
     "xlsx": "^0.16.8"
   }
 }
