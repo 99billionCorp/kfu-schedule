@@ -1,10 +1,9 @@
-import React from "react";
-import Menu from "../Menu";
-import CardDay from "../cardDay/CardDay";
-import {Context} from "../../context";
-import ButtonLink from "../ButtonLink";
-import uuid from "react-uuid";
-import {capitalize} from "@material-ui/core";
+import React from "react"
+import Menu from "../Menu"
+import CardDay from "../cardDay/CardDay"
+import {Context} from "../../context"
+import ButtonLink from "../ButtonLink"
+import {capitalize} from "@material-ui/core"
 
 function euroWeek(day) {
    return !day ? 6 : --day
@@ -29,7 +28,7 @@ export default function Schedule() {
                      <p className="week__title">Актуальное расписание</p>
                      <p className="week__even-odd">
                         {filter.even === 'even' ? 'ЧЕТНАЯ' : 'НЕЧЕТНАЯ'} неделя
-                        <ButtonLink text="изменить" onClick={()=>{
+                        <ButtonLink text="изменить" onClick={() => {
                            changeFilter(filter.even === 'even' ? 'odd' : 'even', 'even')
                         }}/>
                      </p>

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import {useHttp} from "./hooks/http.hook"
+import {useStorage} from "./hooks/storage.hook";
 import {Route, Switch} from "react-router-dom"
 import {BrowserRouter} from "react-router-dom"
 import {Context} from "./context"
@@ -13,6 +14,7 @@ import Info from "./components/pages/Info"
 
 function App() {
    const {request} = useHttp()
+   const {storage} = useStorage()
    const [scheduleData, setScheduleData] = useState(null)
    const [filters, setFilters] = useState(null)
    const [filter, setFilter] = useState({
@@ -25,9 +27,14 @@ function App() {
       }
    )
 
+   useEffect(()=>{
+      request('/api/filters/getAll', 'POST', {filter}).then(setFilters)
+      setFilter({...filter, ...storage('filter')})
+   }, [])
+
    useEffect(() => {
       request("/api", 'POST', {filter}).then(setScheduleData)
-      request('/api/filters/getAll', 'POST', {filter}).then(setFilters)
+      storage('filter', filter)
    }, [filter])
 
    function changeFilter(value, target) {
