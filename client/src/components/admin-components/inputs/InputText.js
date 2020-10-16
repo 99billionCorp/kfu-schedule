@@ -1,5 +1,11 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
+import { TextField, withStyles } from "@material-ui/core";
+
+const InputText__input = withStyles({
+  root: {
+    width: "100%",
+  },
+})(TextField);
 
 export default function InputText({
   desc = "",
@@ -8,14 +14,13 @@ export default function InputText({
   onChange,
 }) {
   return (
-    <div className="input input-text">
-      <p>{desc}</p>
-      <TextField
-        style={{ width: "70%" }}
+    <label className="input input-text">
+      <p className="input__desc"> {desc}</p>
+      <InputText__input
         value={value}
         placeholder={placeholder}
         onChange={onChange}
       />
-    </div>
+    </label>
   );
 }

@@ -2,35 +2,33 @@ import React, { useState } from "react";
 import InputText from "../inputs/InputText";
 import Button from "@material-ui/core/Button";
 
-export default function CreateGroupOfStudents() {
-  const [groupNum, setGroupNum] = useState("");
-  const [prepVector, setPrepVector] = useState("");
+export default function CreatePrepodSub() {
+  const [header, setHeader] = useState("");
+  const [text, setText] = useState("");
   const submit = () => {
     return {
-      groupNum,
-      prepVector,
+      header,
+      text,
     };
   };
+
   return (
     <form onSubmit={submit}>
       <div className="card admin__card">
-        <b className="card__header margin-bottom-medium">
-          Создание группы студентов
-        </b>
         <InputText
-          value={groupNum}
+          value={header}
           onChange={(e) => {
-            setGroupNum(e.target.value);
+            setHeader(e.target.value);
           }}
-          desc="Номер группы"
+          desc="Заголовок"
           placeholder="Начните вводить текст..."
         />
         <InputText
-          value={prepVector}
+          value={text}
           onChange={(e) => {
-            setPrepVector(e.target.value);
+            setText(e.target.value);
           }}
-          desc="Направление подготовки"
+          desc="Содержание"
           placeholder="Начните вводить текст..."
         />
         <Button variant="contained">Сохранить</Button>
