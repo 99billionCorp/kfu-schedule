@@ -1,13 +1,6 @@
 @import '../variables';
 @import '../mixins';
 
-.week {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-
-}
-
 .lessons {
   width: 100%;
   padding: 5px;
@@ -47,7 +40,7 @@
 
 
   &__lesson {
-    margin: 0 30px 20px 40px;
+    margin: 0 5px 20px 40px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -112,7 +105,7 @@
 
   &-search {
     overflow: hidden;
-    height: calc(100vh - 100px); 
+    height: calc(100vh - 100px);
   }
 
   &-fullScreen {
@@ -122,5 +115,4 @@
     left: 5px;
     right: 5px;
   }
- 
 }

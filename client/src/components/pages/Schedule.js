@@ -1,59 +1,60 @@
-import React from "react";
-import Menu from "../Menu";
-import CardDay from "../cardDay/CardDay";
-import { Context } from "../../context";
-import ButtonLink from "../ButtonLink";
-import uuid from "react-uuid";
+import React from "react"
+import Menu from "../Menu"
+import CardDay from "../cardDay/CardDay"
+import {Context} from "../../context"
+import ButtonLink from "../ButtonLink"
+import {capitalize} from "@material-ui/core"
 
 function euroWeek(day) {
-  return day === 0 ? 6 : day - 1;
+   return !day ? 6 : --day
 }
 
 export default function Schedule() {
-  return (
-    <Context.Consumer>
-      {(data) => {
-        const scheduleData = Object.keys(data).map(key => ({'lectures': data[key]['odd'], 'weekday': key}))
-        console.log(scheduleData)
-        const days = scheduleData.map((dayData) => {
-          return <CardDay key={uuid()} dayData={dayData} />
-        })
-        const week = (
-          <div className="week">
-            <div className="week__header">
-              <p className="week__title">Актуальное расписание</p>
-              <p className="week__even-odd">
-                ЧЕТНАЯ неделя
-                {/* <ButtonLink text="изменить" /> */}
-                <button className="btn week__change">изменить</button>
-              </p>
-            </div>
-            {days}
-          </div>
-        )
+   return (
+      <Context.Consumer>
+         {({scheduleData, filter, changeFilter}) => {
+            console.log(scheduleData)
+            const schedulePreparedData = Object.keys(scheduleData)
+               .map(key => ({
+                  'lectures': scheduleData[key][filter.even],
+                  'weekday': capitalize(key)
+               }))
+            const days = schedulePreparedData.map((dayData) => {
+               return <CardDay dayData={dayData}/>
+            })
+            const week = (
+               <div className="week">
+                  <div className="week__header">
+                     <p className="week__title">Актуальное расписание</p>
+                     <p className="week__even-odd">
+                        {filter.even === 'even' ? 'ЧЕТНАЯ' : 'НЕЧЕТНАЯ'} неделя
+                        <ButtonLink text="изменить" onClick={() => {
+                           changeFilter(filter.even === 'even' ? 'odd' : 'even', 'even')
+                        }}/>
+                     </p>
+                  </div>
+                  {days}
+               </div>
+            )
 
-        const todayDay = new Date().getDay()
-        // console.log(data[todayDay]);
-        const todaySchedule = data ? (
-          <div className="margin-bottom-large">
-            <CardDay today={true} day={data[euroWeek(todayDay)]} />
-          </div>
-        ) : (
-          true
-        )
+            const todayDay = new Date().getDay()
+            const todaySchedule = (
+               <div className="margin-bottom-medium">
+                  <CardDay today={true} dayData={schedulePreparedData[euroWeek(todayDay)]}/>
+               </div>
+            )
 
-        return (
-          <div className="basic-margins">
-            <div className="header margin-bottom-tiny">
-              <ButtonLink icon="filter_list" text="Фильтр" href="/filter" />
-              <ButtonLink icon="search" text="Найти" href="/search" />
-            </div>
-            {data && todaySchedule}
-
-            {data && week}
-          </div>
-        );
-      }}
-    </Context.Consumer>
-  );
+            return (
+               <div className="basic-margins">
+                  <div className="header margin-bottom-tiny">
+                     <ButtonLink icon="filter_list" text="Фильтр" href="/filter"/>
+                     <ButtonLink icon="search" text="Найти" href="/search"/>
+                  </div>
+                  {todaySchedule}
+                  {week}
+               </div>
+            )
+         }}
+      </Context.Consumer>
+   )
 }

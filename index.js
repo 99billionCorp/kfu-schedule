@@ -9,35 +9,31 @@ app.use(express.json())
 
 const schedule = JSON.parse(fs.readFileSync(path.join(__dirname, 'utils', 'data.json'), 'utf-8'))
 
-const weekdays = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница']
-const lectures = ['Математический анализ', 'Программирование', 'Правовые основы проф деятльности', 'ОБЖ', 'Алгебра']
-const teachers = ['Пашкова Юлия Сергеевна', 'Старков Павел Александрович', 'Муратов Мустафа Абдурешитович', 'Хазова Юлия Александровна']
+app.post('/api/filters/getAll', (req, res) => {
+   const data = {}
 
-const createLesson = ()=>{
-    return {
-        lessonName: lectures[Math.floor(Math.random() * 5)],
-        teacher: teachers[Math.floor(Math.random() * 4)],
-        classroom: Math.floor(Math.random() * 500)
-    }
-}
-
-const createDay = (id) => {
-    const lessons = new Array(4).fill({}).map(e => {
-        return createLesson()
-    })
-    return {
-        weekday: weekdays[id],
-        lessons
-    }
-}
-
-app.post('/api/', (req,res)=>{
-    console.log('Woow', )
-    const data = schedule[Object.keys(schedule)[0]]
-    const send = data['МАТ-б-о-201(1)']
-    res.json(send)
+   Object.keys(schedule).forEach(key => data[key] = Object.keys(schedule[key]))
+   res.json(data)
 })
 
-app.listen(PORT, ()=>{
-    console.log(`Server has been started on ${PORT}...`)
+const defaultScheduleDoc = schedule[Object.keys(schedule)[0]]
+const defaultSchedule = defaultScheduleDoc[Object.keys(defaultScheduleDoc)[0]]
+
+app.post('/api/schedule', (req, res) => {
+   const {filter} = req.body
+   const {doc, group} = filter
+   const data = doc && schedule && schedule[doc] && schedule[doc][group] ? schedule[doc][group] : defaultSchedule
+
+   res.json(data)
+})
+
+if(process.env.NODE_ENV === 'production'){
+   app.use('/', express.static(path.join(__dirname, 'client', 'build')))
+   app.get('*', (req, res)=>{
+      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+   })
+}
+
+app.listen(PORT, () => {
+   console.log(`Server has been started on ${PORT}...`)
 })

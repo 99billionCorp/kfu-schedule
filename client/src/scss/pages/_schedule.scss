@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   &__title {
@@ -22,6 +22,11 @@
   &__even-odd {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    *{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     grid-gap: 10px;
   }
 
