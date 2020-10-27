@@ -3,6 +3,7 @@ import MaterialIcon from "material-icons-react"
 import ButtonLink from "../ButtonLink"
 import {Link} from "react-router-dom"
 import TextField from "@material-ui/core/TextField"
+import Autocomplete from '@material-ui/lab/Autocomplete'
 import {
    fade,
    ThemeProvider,
@@ -11,7 +12,6 @@ import {
    createMuiTheme,
 } from "@material-ui/core/styles"
 
-import Autocomplete from "@material-ui/core"
 import {Context} from "../../context"
 
 const InputField = withStyles({

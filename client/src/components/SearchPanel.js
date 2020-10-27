@@ -1,5 +1,7 @@
 import React from "react";
-import Autocomplete from "@material-ui/core";
+// import Autocomplete from "@material-ui/core";
+import Autocomplete from '@material-ui/lab/useAutocomplete'
+
 
 const professor = [
   {
