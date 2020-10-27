@@ -11,7 +11,7 @@
   border-radius: 3px;
   padding: 10px;
   box-shadow: 0px 0px 5px 0px rgba(219, 219, 219, 0.75);
-  counter-reset: lesson;
+  // counter-reset: lesson;
 
   display: flex;
   flex-direction: column;
@@ -45,11 +45,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
 
-
-    &::before {
-      counter-increment: lesson;
-      content: counter(lesson);
+  &__num {
       display: block;
       position: absolute;
       top: .5em;
@@ -61,7 +59,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
   }
 
   &__name {
