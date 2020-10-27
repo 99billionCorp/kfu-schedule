@@ -3,7 +3,7 @@ import Menu from "../Menu"
 import CardDay from "../cardDay/CardDay"
 import {Context} from "../../context"
 import ButtonLink from "../ButtonLink"
-import {capitalize} from "@material-ui/core"
+import {capitalize} from '@material-ui/core'
 
 function euroWeek(day) {
    return !day ? 6 : --day

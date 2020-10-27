@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/artif1c1al/kfu-schedule#readme",
   "devDependencies": {
+    "@material-ui/core": "^4.11.0",
     "concurrently": "^5.3.0",
     "nodemon": "^2.0.4"
   },

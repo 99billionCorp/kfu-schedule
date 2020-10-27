@@ -1,7 +1,5 @@
 import React from "react";
-import MaterialIcon from "material-icons-react";
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import Autocomplete from "@material-ui/core";
 
 const professor = [
   {

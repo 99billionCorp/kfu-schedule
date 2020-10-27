@@ -1,5 +1,5 @@
-import React from "react";
-import ButtonLink from "../ButtonLink";
+import React from 'react'
+import ButtonLink from '../ButtonLink'
 
 export default function Info() {
    return (
@@ -20,5 +20,5 @@ export default function Info() {
             />
          </div>
       </div>
-   );
+   )
 }
