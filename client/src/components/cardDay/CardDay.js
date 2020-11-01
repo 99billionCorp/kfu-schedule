@@ -10,16 +10,11 @@ const callSchedule = [
   { lectureName: "11:30 - 13:00" },
 ];
 
-export default function CardDay(
-  { today = false, dayData = {} },
-  dayNumber = 0
-) {
+export default function CardDay({ today = false, dayData = {lectures: []} }) {
   const [isTodaySchedule, setIsTodaySchedule] = useState(true);
-  console.log(dayData);
 
   const displayLesson = (el, index) => {
     const { classroom, teacher, lectureName } = el;
-    //  console.log(el);
     return (
       lectureName && (
         <Lesson
