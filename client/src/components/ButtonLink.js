@@ -17,7 +17,7 @@ export default function ButtonLink({
   return (
     <Link to={href}>
       <div className="btn buttonLink" onClick={onClick} style={style}>
-        <MaterialIcon icon={icon} color="#212121" />
+        <MaterialIcon icon={icon} color={color} />
         <span>{text}</span>
       </div>
     </Link>
